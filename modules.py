@@ -257,7 +257,7 @@ if __name__ == '__main__':
     # net = UNet(device="cpu")
     net = UNet_conditional(num_classes=10, device="cpu")
     print(sum([p.numel() for p in net.parameters()]))
-    x = torch.randn(3, 3, 64, 64)
+    x = torch.randn(3, 3, 32, 32)
     t = x.new_tensor([500] * x.shape[0]).long()
     y = x.new_tensor([1] * x.shape[0]).long()
     print(net(x, t, y).shape)
